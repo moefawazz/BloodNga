@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Primary Font-Bold";
+    src: url(../public/fonts/Roboto-Bold.ttf) format("truetype");
+  }
+@font-face {
+    font-family: "Primary Font-Regular";
+    src: url(../public/fonts/Roboto-Regular.ttf) format("truetype");
+  }
+@font-face {
+    font-family: "Primary Font-Medium";
+    src: url(../public/fonts/Roboto-Medium.ttf) format("truetype");
+  }
+@font-face {
+    font-family: "Primary Font-Light";
+    src: url(../public/fonts/Roboto-Light.ttf) format("truetype");
+  }
+  
