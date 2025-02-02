@@ -38,16 +38,12 @@ export const Input = styled.input`
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  border: none;
+  border: solid 1px black ;
 
   &::placeholder {
     color: #637588;
   }
 
-  &:focus {
-    outline: none;
-    border: none;
-  }
 `;
 
 export const StyledTextArea = styled.textarea`

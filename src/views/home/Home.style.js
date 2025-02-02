@@ -42,3 +42,32 @@ export const GridContainer = styled.div`
         grid-template-columns: repeat(1, 1fr); /* Create 3 equal columns */
   }
 `;
+
+export const ImageHolder = styled.img`
+  width: 100%;
+  height: 20rem;
+  display: flex;
+  overflow-y:none;
+  @media (max-width: 480px) {
+    width: 100vw; 
+  height: 100vh; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: -1; 
+  }
+  `
+;
+
+export const MainDiv=styled.div`
+margin-top:1rem;
+ font-size: 3.5rem;  
+  font-weight: 600; 
+  font-family: "Poppins", sans-serif; 
+  letter-spacing: 1px; 
+  text-align: center; 
+  @media (max-width: 580px) {
+    font-size: 1rem; 
+  }
+
+`

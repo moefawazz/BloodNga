@@ -13,7 +13,7 @@ export const Button = styled.button`
   height: 40px;
   padding: 10px 16px; /* px-4 translates to 16px horizontal padding */
   flex: 1;
-  background-color: #1980e6;
+  background-color: red;
   color: white;
   font-size: 14px; /* text-sm translates to 14px */
   font-weight: bold;

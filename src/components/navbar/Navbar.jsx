@@ -9,6 +9,8 @@ import {
   HamburgerIcon,
   MenuContainer,
   MenuItem,
+  NavBarLinks,
+  RetractedMenu,
 } from "./NavBar.style";
 import { useLang } from "../../contexts/LangContext";
 import { useNavigate } from "react-router-dom";
@@ -16,16 +18,18 @@ import { UserAuth } from "../../contexts/authContext";
 import { useTheme } from "../../contexts/ThemeContext";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { FaBars } from "react-icons/fa"; 
-import { BiLogIn, BiLogOut } from "react-icons/bi";
+import { BiLogIn, BiLogOut,BiDonateBlood } from "react-icons/bi";
+import { IoIosInformationCircleOutline } from "react-icons/io";
+import { MdOutlineBloodtype  } from "react-icons/md";
 import { GrLanguage } from "react-icons/gr";
-
+import BloodLogo from "../../assests/BloodLogo.jpg"
 const NavBar = () => {
   const { language, updateLanguage, translations } = useLang();
   const { logout, user } = UserAuth();
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { theme, toggleTheme, themeMode } = useTheme();
-  const [menuOpen, setMenuOpen] = useState(false); // state to toggle menu on small screens
+  const [menuOpen, setMenuOpen] = useState(false); 
 
   useEffect(() => {
     setIsLoggedIn(!!user);
@@ -51,28 +55,26 @@ const NavBar = () => {
     <Header theme={theme}>
       <LogoContainer onClick={() => navigate("/")}>
         <Logo>
-          <svg
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z"
-              fill={'#1980e6'}
-            ></path>
-          </svg>
+        <img src={BloodLogo} width={"100px"} height={"48px"}/>
         </Logo>
-        <Title color={theme.textPrimary}>ManageMate</Title>
       </LogoContainer>
+      
+      <NavBarLinks onClick={() => navigate("/")}>
 
+Give Blood
+     </NavBarLinks>
+     <NavBarLinks onClick={() => navigate("/requestblood")}>
+Request Blood
+     </NavBarLinks>
+     <NavBarLinks onClick={() => navigate("/cardgenerate")}>
+Generate Card
+     </NavBarLinks>
       <HamburgerIcon onClick={toggleMenu}>
         <FaBars size={24} />
       </HamburgerIcon>
 
       <ButtonsContainer>
-        {isLoggedIn ? (
+      {isLoggedIn ? (
           <Button primary onClick={handleLogout} theme={theme}>
             <span>{translations.logOut}</span>
           </Button>
@@ -81,50 +83,36 @@ const NavBar = () => {
             <span>{translations.logIn}</span>
           </Button>
         )}
-        <Button onClick={toggleLanguage} theme={theme}>
-        <GrLanguage size={20}/>
-        </Button>
-        <Button
-          onClick={toggleTheme}
-          style={{ fontSize: "20px" }}
-          theme={theme}
-        >
-          {themeMode === "dark" ? (
-            <MdOutlineDarkMode />
-          ) : (
-            <MdOutlineLightMode />
-          )}
-        </Button>
+     
       </ButtonsContainer>
 
       {menuOpen && (
         <MenuContainer theme={theme} language={language}>
+             <MenuItem onClick={() => navigate("/")}>
+             <MdOutlineBloodtype size={20}/>
+            <RetractedMenu>Donate Blood</RetractedMenu>
+          </MenuItem>
+             <MenuItem onClick={() => navigate("/RequestBlood")}>
+             <BiDonateBlood size={20} />
+            <RetractedMenu>Request Blood</RetractedMenu>
+          </MenuItem>
+             <MenuItem onClick={() => navigate("/CardGenerate")}>
+             <IoIosInformationCircleOutline size={20}/>
+            <RetractedMenu>Generate Card</RetractedMenu>
+          </MenuItem>
           {isLoggedIn ? (
             <MenuItem onClick={handleLogout}>
               <BiLogIn size={20}/>
-              <div>{translations.logOut}</div>
+              <RetractedMenu>{translations.logOut}</RetractedMenu>
             </MenuItem>
           ) : (
             <MenuItem onClick={() => navigate("/login")}>
               <BiLogOut size={20}/>
-              <div>{translations.logIn}</div>
+              <RetractedMenu>{translations.logIn}</RetractedMenu>
             </MenuItem>
           )}
-          <MenuItem onClick={toggleLanguage}>
-            <GrLanguage size={20}/>
-            <div>{translations.language}</div>
-          </MenuItem>
-          <MenuItem onClick={toggleTheme}>
-            {themeMode === "dark" ? (
-              <>
-                <MdOutlineDarkMode size={20}/> <div>{translations.dark}</div>
-              </>
-            ) : (
-              <>
-                <MdOutlineLightMode size={20}/> <div>{translations.light}</div>
-              </>
-            )}
-          </MenuItem>
+       
+         
         </MenuContainer>
       )}
     </Header>

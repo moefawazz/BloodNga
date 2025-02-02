@@ -26,6 +26,7 @@ export const HamburgerIcon = styled.div`
 `;
 
 export const MenuContainer = styled.div`
+z-index:100;
   position: absolute;
   top: 50px;
   right: ${props => props.language === 'ar' ? 'auto' : '20px'};
@@ -86,7 +87,7 @@ export const Title = styled.h2`
   font-family: "Primary Font-Bold";
   line-height: 1.25;
   letter-spacing: -0.015em;
-
+margin-left:1rem;
     /* Very small screens (small mobile devices) */
     @media (max-width: 300px) {
       font-size: 0.9rem; 
@@ -120,6 +121,42 @@ export const ButtonsContainer = styled.div`
     display: none;
   }
 `;
+export const RetractedMenu=styled.div`
+  &:hover {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-decoration-thickness: 3px; 
+  text-underline-offset: 4px; 
+}
+
+`
+export const NavBarLinks=styled.div`
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 40px;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: bold;
+  line-height: normal;
+  padding: ${(props) => (props.primary ? '0 16px' : '0 10px')};
+  background-color: ${(props) => props.theme.backgroundColor};
+  border: none;
+  color: ${(props) => props.theme.textPrimary};
+
+  &:hover {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-decoration-thickness: 3px; 
+  text-underline-offset: 4px; 
+}
+@media (max-width: 480px) {
+    display: none;
+  }
+`
+
 
 export const Button = styled.button`
   display: flex;

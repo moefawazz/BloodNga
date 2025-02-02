@@ -6,6 +6,7 @@ import Navbar from "./components/navbar/Navbar";
 import Items from "./views/items/Items";
 import Users from "./views/users/Users";
 import Profits from "./views/profits/Profits";
+import Request from "./views/request/Request";
 import Payments from "./views/payments/Payments";
 import { LangProvider, useLang } from "./contexts/LangContext";
 import Login from "./views/login/Login";
@@ -16,6 +17,8 @@ import NotFound from "./views/notFound/NotFound";
 import Statistics from "./views/statistics/Statistics";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import { StyledToastContainer } from "./globalStyles";
+import Donate from "./views/donate/donate";
+import CardGenerate from "./views/cardgenerate/CardGenerate";
 
 function AppContent() {
   const { theme } = useTheme();
@@ -38,14 +41,13 @@ function AppContent() {
       rtl={language === 'ar' ? 'rtl' : ''}
       />
       <Routes>
-        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/items" element={<ProtectedRoute><Items /></ProtectedRoute>} />
-        <Route path="/users" element={<ProtectedRoute><Users /></ProtectedRoute>} />
-        <Route path="/payments" element={<ProtectedRoute><Payments /></ProtectedRoute>} />
-        <Route path="/profits" element={<ProtectedRoute><Profits /></ProtectedRoute>} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Donate />} />
+        <Route path="/RequestBlood" element={<Request />} />
+        <Route path="/CardGenerate" element={<CardGenerate />} />
+        <Route path="/About" element={<ProtectedRoute><Items /></ProtectedRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/statistics" element={<ProtectedRoute><Statistics /></ProtectedRoute>} />
         <Route path="/*" element={<ProtectedRoute><NotFound /></ProtectedRoute>} />
       </Routes>
     </BrowserRouter>
