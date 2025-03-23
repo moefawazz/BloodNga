@@ -71,3 +71,56 @@ margin-top:1rem;
   }
 
 `
+
+export const EmergencyButton = styled.div`
+  position: fixed;
+  bottom: 30px;
+  left: 0; 
+  width: 30px; 
+  height: 60px;
+  background-color: red;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: width 0.3s ease-in-out;
+  overflow: hidden; 
+  
+  &:hover {
+    width: 160px; 
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    white-space: nowrap;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover a {
+    opacity: 1; /* Show text when hovered */
+  }
+`;
+
+
+export const Tooltip = styled.span`
+  position: absolute;
+  bottom: 70px;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+`;

@@ -14,7 +14,8 @@ const DonateInputs = () => {
       dob: '',
       location: '',
       diseases: '',
-      ldb: ''
+      ldb: '',
+      email: '',
     });
   
     const handleInputChange = (field) => (e) => {
@@ -29,6 +30,7 @@ const DonateInputs = () => {
     return (
         <MainInputs>
         <StyledInput label={"Name + Last Name *"} type={"text"} onChange={handleInputChange("name")} name="name" value={formData.name} />
+        <StyledInput label={"Email *"} type={"text"} onChange={handleInputChange("email")} name="email" value={formData.email} />
         <StyledInput label={"Phone Number *"} type={"text"}  onChange={handleInputChange("phone")} name="phone" value={formData.phone} />
             <LabelContainer>
               <Label>Blood Type *</Label>

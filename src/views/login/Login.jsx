@@ -56,19 +56,8 @@ const Login = () => {
             justifyContent: "center",
           }}
         >
-          <RegularTypography text={translations.newToManageMate} />
-          <Link to={"/signup"}>
-            <p
-              style={{
-                fontFamily: "Primary Font-Regular",
-                color: "#1980e6",
-                textDecoration: "underline",
-                textDecorationColor: "#1980e6",
-              }}
-            >
-              {translations.signUpForAnAccount}
-            </p>
-          </Link>
+     
+          
         </div>
       </div>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "30px" }}>

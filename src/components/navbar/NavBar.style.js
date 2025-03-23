@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-min-width: max-content;
+  min-width: max-content;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,12 +9,25 @@ min-width: max-content;
   border-bottom: 1px solid ${(props) => props.theme.borderColor};
   padding: 12px 40px;
   background-color: ${(props) => props.theme.bgSecondary};
+  
+  /* Fixed position */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures navbar stays on top */
+  
+  /* Push the rest of the content down */
+  & + * {
+    margin-top: 60px; /* Adjust based on navbar height */
+  }
 
   /* Very small screens (small mobile devices) */
   @media (max-width: 480px) {
     padding: 12px 20px;
   }
 `;
+
 
 export const HamburgerIcon = styled.div`
   display: none;

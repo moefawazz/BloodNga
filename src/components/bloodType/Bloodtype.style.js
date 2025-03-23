@@ -11,13 +11,13 @@ export const Main=styled.div`
   font-size: 0.5rem;
   font-weight: bold;
   &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    box-shadow: 0 0 10px rgba(247, 10, 2, 0.76);
   }
 
   ${({ isSelected }) =>
     isSelected && `
-      box-shadow: 0 0 15px rgba(0, 0, 255, 0.8);
-      border-color: blue;
+      box-shadow: 0 0 15px rgba(244, 23, 27, 0.8);
+      border-color: red;
     `}
 
 `

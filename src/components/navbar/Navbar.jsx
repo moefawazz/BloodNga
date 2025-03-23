@@ -16,7 +16,7 @@ import { useLang } from "../../contexts/LangContext";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../../contexts/authContext";
 import { useTheme } from "../../contexts/ThemeContext";
-import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+import { MdDashboard, MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { FaBars } from "react-icons/fa"; 
 import { BiLogIn, BiLogOut,BiDonateBlood } from "react-icons/bi";
 import { IoIosInformationCircleOutline } from "react-icons/io";
@@ -72,7 +72,12 @@ Generate Card
       <HamburgerIcon onClick={toggleMenu}>
         <FaBars size={24} />
       </HamburgerIcon>
-
+      {
+        isLoggedIn &&
+      <NavBarLinks onClick={() => navigate("/dashboard")}>
+        <MdDashboard height={"2rem"} width={"2rem"} size={"2rem"}/>
+        </NavBarLinks>
+      }
       <ButtonsContainer>
       {isLoggedIn ? (
           <Button primary onClick={handleLogout} theme={theme}>
@@ -83,7 +88,6 @@ Generate Card
             <span>{translations.logIn}</span>
           </Button>
         )}
-     
       </ButtonsContainer>
 
       {menuOpen && (
@@ -99,6 +103,20 @@ Generate Card
              <MenuItem onClick={() => navigate("/CardGenerate")}>
              <IoIosInformationCircleOutline size={20}/>
             <RetractedMenu>Generate Card</RetractedMenu>
+          </MenuItem>
+          <MenuItem>
+          {
+            isLoggedIn &&
+            <>
+            
+            <MdDashboard/>
+         <>
+         Dashboard
+         </>
+            </>
+           
+
+          }
           </MenuItem>
           {isLoggedIn ? (
             <MenuItem onClick={handleLogout}>
